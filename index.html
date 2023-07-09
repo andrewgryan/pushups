@@ -8,8 +8,8 @@
   <body>
     <h1>Push-up counter</h1>
     <form>
-      <input type="number" min="0" value="0" />
-      <button type="submit">Log</button>
+      <input type="number" id="counter" min="0" value="0" />
+      <button type="button" id="btn">Log</button>
     </form>
 
     <script type="module">
@@ -23,6 +23,12 @@
         .from("workouts")
         .select("pushup_count,workout_date");
       console.log(workouts);
+
+      // Wire up button
+      document.getElementById("btn").addEventListener("click", (ev) => {
+        let el = document.getElementById("counter");
+        console.log(el.value);
+      });
     </script>
   </body>
 </html>
