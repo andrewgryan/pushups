@@ -32,7 +32,9 @@
         let li = document.createElement("li");
         li.appendChild(
           document.createTextNode(
-            `${workout.workout_date}: ${workout.pushup_count}`
+            `${workout.workout_date.toLocaleDateString()}: ${
+              workout.pushup_count
+            }`
           )
         );
         ul.appendChild(li);
