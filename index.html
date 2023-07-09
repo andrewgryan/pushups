@@ -12,6 +12,9 @@
       <button type="button" id="btn">Log</button>
     </form>
 
+    <h3>Previous sessions</h3>
+    <ul id="sessions"></ul>
+
     <script type="module">
       import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
       const supabase = createClient(
@@ -22,9 +25,20 @@
       let { data: workouts, errpr } = await supabase
         .from("workouts")
         .select("pushup_count,workout_date");
-      console.log(workouts);
 
-      // Wire up button
+      // Render previous sessions
+      let ul = document.getElementById("sessions");
+      workouts.forEach((workout) => {
+        li = document.createElement("li");
+        li.appendChild(
+          document.createTextNode(
+            `${workout.workout_date}: ${workout.pushup_count}`
+          )
+        );
+        ul.appendChild(li);
+      });
+
+      // Connect event to supabase
       document.getElementById("btn").addEventListener("click", async (ev) => {
         let el = document.getElementById("counter");
         const count = el.value;
