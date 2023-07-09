@@ -25,9 +25,16 @@
       console.log(workouts);
 
       // Wire up button
-      document.getElementById("btn").addEventListener("click", (ev) => {
+      document.getElementById("btn").addEventListener("click", async (ev) => {
         let el = document.getElementById("counter");
-        console.log(el.value);
+        const count = el.value;
+        const date = new Date();
+
+        const { data, error } = await supabase
+          .from("workouts")
+          .insert([{ pushup_count: count, workout_date: date }])
+          .select();
+        console.log({ data, error });
       });
     </script>
   </body>
