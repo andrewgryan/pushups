@@ -29,7 +29,7 @@
       // Render previous sessions
       let ul = document.getElementById("sessions");
       workouts.forEach((workout) => {
-        li = document.createElement("li");
+        let li = document.createElement("li");
         li.appendChild(
           document.createTextNode(
             `${workout.workout_date}: ${workout.pushup_count}`
