@@ -6,7 +6,7 @@ const supabase = createClient(
 
 let { data: workouts, errpr } = await supabase
   .from("workouts")
-  .select("pushup_count,repetitions,sets,workout_date");
+  .select("repetitions,sets,workout_date");
 
 // Render previous sessions
 let ul = document.getElementById("sessions");
