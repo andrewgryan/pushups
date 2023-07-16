@@ -22,6 +22,10 @@
     <h3>Previous sessions</h3>
     <ul id="sessions"></ul>
 
+    <div>
+      <canvas id="chart" />
+    </div>
+
     <script type="module">
       import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
       const supabase = createClient(
@@ -57,6 +61,42 @@
           .insert([{ pushup_count: count, workout_date: date }])
           .select();
         console.log({ data, error });
+      });
+
+      // Chart.js
+      import {
+        Chart,
+        registerables,
+      } from "https://cdn.jsdelivr.net/npm/chart.js@4.3.0/+esm";
+      Chart.register(...registerables);
+      Chart.defaults.color = "white";
+      Chart.defaults.borderColor = "hsl(240deg 50% 50% / 0.3)";
+
+      const render = (data) => {
+        new Chart(document.getElementById("chart"), {
+          type: "line",
+          data,
+        });
+      };
+
+      const toLabels = (workouts) => {
+        return workouts.map((workout, i) => i);
+      };
+
+      const toDatasets = (workouts) => {
+        const reps = workouts.map((workout) => workout.pushup_count);
+        const sets = workouts.map((workout) => 1);
+        const total = workouts.map((workout) => workout.pushup_count);
+        return [
+          { label: "Reps", data: reps },
+          { label: "Sets", data: sets },
+          { label: "Total", data: total },
+        ];
+      };
+
+      render({
+        labels: toLabels(workouts),
+        datasets: toDatasets(workouts),
       });
     </script>
   </body>
