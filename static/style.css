@@ -1,0 +1,15 @@
+:root {
+  --text: hsl(240deg 90% 60%);
+  --surface: hsl(240deg 50% 10%);
+  --font-family: "Tektur", cursive;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-content: center;
+  min-height: 100svh;
+  color: var(--text);
+  background-color: var(--surface);
+  font-family: var(--font-family);
+}

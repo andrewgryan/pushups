@@ -1,5 +1,5 @@
-const HTML = await Deno.readFile("./index.html");
+import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
 
 Deno.serve(async (req: Request): Response => {
-  return new Response(HTML, { "content-type": "text/html" });
+  return serveDir(req, { fsRoot: "./static" });
 });
