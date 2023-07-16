@@ -15,17 +15,19 @@
   <body>
     <h1>Push-up counter</h1>
 
-    <form>
-      <div class="widget">
-        <label for="counter">Repetitions</label>
-        <input type="number" id="counter" min="0" value="1" />
-      </div>
-      <div class="widget">
-        <label for="sets">Sets</label>
-        <input type="number" id="sets" min="0" value="1" />
-      </div>
-      <button type="button" id="btn">Submit session</button>
-    </form>
+    <div id="form">
+      <form>
+        <div class="widget">
+          <label for="counter">Repetitions</label>
+          <input type="number" id="counter" min="0" value="1" />
+        </div>
+        <div class="widget">
+          <label for="sets">Sets</label>
+          <input type="number" id="sets" min="0" value="1" />
+        </div>
+        <button type="button" id="btn">Submit session</button>
+      </form>
+    </div>
 
     <h3>Previous sessions</h3>
     <ul id="sessions"></ul>

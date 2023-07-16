@@ -21,15 +21,24 @@ workouts.forEach((workout) => {
 
 // Connect event to supabase
 document.getElementById("btn").addEventListener("click", async (ev) => {
+  // Get values from form
   let el = document.getElementById("counter");
   const count = el.value;
   const date = new Date();
 
+  // Update form container
+  let form = document.getElementById("form");
+  form.innerHTML = `
+    <h2>Submitted</h2>
+    <div>Reps: ${count}</div>
+    <div>Sets: 1</div>
+  `;
+
+  // Push to database
   const { data, error } = await supabase
     .from("workouts")
     .insert([{ pushup_count: count, workout_date: date }])
     .select();
-  console.log({ data, error });
 });
 
 // Chart.js
