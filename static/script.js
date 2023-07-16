@@ -6,7 +6,7 @@ const supabase = createClient(
 
 let { data: workouts, errpr } = await supabase
   .from("workouts")
-  .select("pushup_count,workout_date");
+  .select("pushup_count,repetitions,sets,workout_date");
 
 // Render previous sessions
 let ul = document.getElementById("sessions");
@@ -14,7 +14,9 @@ workouts.forEach((workout) => {
   let date = new Date(workout.workout_date);
   let li = document.createElement("li");
   li.appendChild(
-    document.createTextNode(`${date.toLocaleString()}: ${workout.pushup_count}`)
+    document.createTextNode(
+      `${date.toLocaleString()}: ${workout.sets} ${workout.repetitions}`
+    )
   );
   ul.appendChild(li);
 });
@@ -22,22 +24,29 @@ workouts.forEach((workout) => {
 // Connect event to supabase
 document.getElementById("btn").addEventListener("click", async (ev) => {
   // Get values from form
-  let el = document.getElementById("counter");
-  const count = el.value;
+  let repetitions = document.getElementById("repetitions").value;
+  let sets = document.getElementById("sets").value;
   const date = new Date();
 
   // Update form container
   let form = document.getElementById("form");
   form.innerHTML = `
     <h2>Submitted</h2>
-    <div>Reps: ${count}</div>
-    <div>Sets: 1</div>
+    <div>Reps: ${repetitions}</div>
+    <div>Sets: ${sets}</div>
   `;
 
   // Push to database
   const { data, error } = await supabase
     .from("workouts")
-    .insert([{ pushup_count: count, workout_date: date }])
+    .insert([
+      {
+        repetitions,
+        sets,
+        pushup_count: repetitions * sets,
+        workout_date: date,
+      },
+    ])
     .select();
 });
 
