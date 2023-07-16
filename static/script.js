@@ -43,7 +43,6 @@ document.getElementById("btn").addEventListener("click", async (ev) => {
       {
         repetitions,
         sets,
-        pushup_count: repetitions * sets,
         workout_date: date,
       },
     ])
@@ -71,9 +70,9 @@ const toLabels = (workouts) => {
 };
 
 const toDatasets = (workouts) => {
-  const reps = workouts.map((workout) => workout.pushup_count);
-  const sets = workouts.map((workout) => 1);
-  const total = workouts.map((workout) => workout.pushup_count);
+  const reps = workouts.map(({ repetitions }) => repetitions);
+  const sets = workouts.map(({ sets }) => sets);
+  const total = workouts.map(({ repetitions, sets }) => repetitions * sets);
   return [
     { label: "Reps", data: reps },
     { label: "Sets", data: sets },
