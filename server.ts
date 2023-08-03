@@ -8,9 +8,10 @@ const supabase = createClient(
 Deno.serve(async (req: Request): Response => {
   if (req.method === "POST") {
     // Form data
-    const data = await req.formData();
-    const repetitions = data.get("repetitions");
-    const sets = data.get("sets");
+    const formData = await req.formData();
+    const repetitions = formData.get("repetitions");
+    const sets = formData.get("sets");
+
     const date = new Date();
 
     // Set row in database
