@@ -21,34 +21,6 @@ workouts.forEach((workout) => {
   ul.appendChild(li);
 });
 
-// Connect event to supabase
-document.getElementById("btn").addEventListener("click", async (ev) => {
-  // Get values from form
-  let repetitions = document.getElementById("repetitions").value;
-  let sets = document.getElementById("sets").value;
-  const date = new Date();
-
-  // Update form container
-  let form = document.getElementById("form");
-  form.innerHTML = `
-    <h2>Submitted</h2>
-    <div>Reps: ${repetitions}</div>
-    <div>Sets: ${sets}</div>
-  `;
-
-  // Push to database
-  const { data, error } = await supabase
-    .from("workouts")
-    .insert([
-      {
-        repetitions,
-        sets,
-        workout_date: date,
-      },
-    ])
-    .select();
-});
-
 // Chart.js
 import {
   Chart,

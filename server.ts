@@ -7,14 +7,30 @@ const supabase = createClient(
 
 Deno.serve(async (req: Request): Response => {
   if (req.method === "POST") {
-    // Supabase client
-    console.log({ supabase });
-
+    // Form data
     const data = await req.formData();
+    const repetitions = data.get("repetitions");
+    const sets = data.get("sets");
+    const date = new Date();
+
+    // Set row in database
+    const { data, error } = await supabase
+      .from("workouts")
+      .insert([
+        {
+          repetitions,
+          sets,
+          workout_date: date,
+        },
+      ])
+      .select();
+
+    console.log({ data, error });
+
     return new Response(`
       <h2>Submitted</h2>
-      <div>Repetitions: ${data.get("repetitions")}</div>
-      <div>Sets: ${data.get("sets")}</div>
+      <div>Repetitions: ${repetitions}</div>
+      <div>Sets: ${sets}</div>
     `);
   }
   return serveDir(req, { fsRoot: "./static" });
