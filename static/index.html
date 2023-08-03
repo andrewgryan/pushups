@@ -11,9 +11,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
   </head>
   <body>
     <h1>Push-up counter</h1>
+
+    <button hx-get="/account" hx-swap="outerHTML">Click me</button>
 
     <div id="form">
       <form>
