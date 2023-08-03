@@ -16,7 +16,10 @@
   <body>
     <h1>Push-up counter</h1>
 
-    <button hx-post="/" hx-swap="outerHTML">Click me</button>
+    <form hx-post="/guess" hx-swap="outerHTML">
+      <input id="secret" name="secret" type="number" value="42" />
+      <button type="submit">Click me</button>
+    </form>
 
     <div id="form">
       <form>
