@@ -16,9 +16,16 @@
   <body>
     <h1>Push-up counter</h1>
 
-    <form hx-post="/guess" hx-swap="outerHTML">
-      <input id="secret" name="secret" type="number" value="42" />
-      <button type="submit">Click me</button>
+    <form hx-post="/log" hx-swap="outerHTML">
+      <div class="widget">
+        <label for="rep">Repetitions</label>
+        <input type="number" name="repetitions" id="rep" min="0" value="1" />
+      </div>
+      <div class="widget">
+        <label for="set">Sets</label>
+        <input type="number" name="sets" id="set" min="0" value="1" />
+      </div>
+      <button type="submit">Submit session</button>
     </form>
 
     <div id="form">

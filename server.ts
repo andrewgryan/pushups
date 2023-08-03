@@ -11,7 +11,11 @@ Deno.serve(async (req: Request): Response => {
     console.log({ supabase });
 
     const data = await req.formData();
-    return new Response(`<h1>${data.get("secret")}</h1>`);
+    return new Response(`
+      <h2>Submitted</h2>
+      <div>Repetitions: ${data.get("repetitions")}</div>
+      <div>Sets: ${data.get("sets")}</div>
+    `);
   }
   return serveDir(req, { fsRoot: "./static" });
 });
