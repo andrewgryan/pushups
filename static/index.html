@@ -16,41 +16,60 @@
   <body>
     <h1>Push-up counter</h1>
 
-    <form hx-post="/log" hx-swap="outerHTML">
-      <div class="row">
-        <div class="widget">
-          <label for="rep">Repetitions</label>
-          <input
-            type="text"
-            inputmode="numeric"
-            pattern="[0-9]+"
-            name="repetitions"
-            id="rep"
-            min="0"
-            value="1"
-          />
-        </div>
-        <div class="widget">
-          <label for="set">Sets</label>
-          <input
-            type="text"
-            inputmode="numeric"
-            pattern="[0-9]+"
-            name="sets"
-            id="set"
-            min="0"
-            value="1"
-          />
+    <div class="stack">
+      <div class="item">
+        <div>
+          <canvas id="chart" />
         </div>
       </div>
-      <button type="submit">Submit session</button>
-    </form>
-
-    <h3>Previous sessions</h3>
-    <ul id="sessions"></ul>
-
-    <div>
-      <canvas id="chart" />
+      <div class="tab tab-1">
+        <input type="radio" id="1" name="tabs" value="1" checked />
+        <label for="1">Chart</label>
+      </div>
+      <div class="item">
+        <h2>Submission form</h2>
+        <form class="submission" hx-post="/log" hx-swap="outerHTML">
+          <div class="row">
+            <div class="widget">
+              <label for="rep">Repetitions</label>
+              <input
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]+"
+                name="repetitions"
+                id="rep"
+                min="0"
+                value="1"
+              />
+            </div>
+            <div class="widget">
+              <label for="set">Sets</label>
+              <input
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]+"
+                name="sets"
+                id="set"
+                min="0"
+                value="1"
+              />
+            </div>
+          </div>
+          <button type="submit">Submit session</button>
+        </form>
+      </div>
+      <div class="tab tab-2">
+        <input type="radio" id="2" name="tabs" value="2" />
+        <label for="2">Record</label>
+      </div>
+      <div class="item">
+        <h3>Previous sessions</h3>
+        <ul id="sessions"></ul>
+      </div>
+      <div class="tab tab-3">
+        <input type="radio" id="3" name="tabs" value="3" />
+        <label for="3">Log</label>
+      </div>
     </div>
 
     <script type="module">
