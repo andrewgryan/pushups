@@ -4,8 +4,19 @@
   --text-3: oklch(10% 0.1 var(--hue));
   --surface-1: oklch(5% 0.1 var(--hue));
   --surface-2: oklch(20% 0.1 var(--hue));
-  --surface-3: oklch(50% 0.1 var(--hue));
+  --surface-3: oklch(80% 0.1 var(--hue));
   --font-family: "Tektur", cursive;
+  --font-letterspacing-2: 0.05em;
+  --font-lineheight-1: 1.1;
+
+  /* Weight */
+  --font-weight-1: 100;
+  --font-weight-2: 200;
+  --font-weight-3: 300;
+  --font-weight-4: 400;
+  --font-weight-5: 500;
+  --font-weight-6: 600;
+  --font-weight-7: 700;
 
   /* Sizes */
   --size-1: 0.25rem;
@@ -22,6 +33,8 @@
 
 h1 {
   font-size: var(--size-5);
+  letter-spacing: var(--font-letterspacing-2);
+  line-height: var(--font-lineheight-1);
 }
 
 body {
@@ -56,6 +69,7 @@ input {
 
 button {
   font-family: var(--text);
+  font-weight: var(--font-weight-7);
   padding-block: var(--size-2);
   text-transform: uppercase;
   letter-spacing: var(--font-spacing-3);
