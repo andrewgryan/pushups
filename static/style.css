@@ -1,9 +1,10 @@
 :root {
   --hue: 220deg;
-  --text: hsl(var(--hue) 90% 70%);
-  --surface: hsl(var(--hue) 50% 8%);
-  --surface-2: hsl(var(--hue) 50% 15%);
-  --surface-3: hsl(var(--hue) 50% 30%);
+  --text: oklch(70% 0.1 var(--hue));
+  --text-3: oklch(10% 0.1 var(--hue));
+  --surface-1: oklch(5% 0.1 var(--hue));
+  --surface-2: oklch(20% 0.1 var(--hue));
+  --surface-3: oklch(50% 0.1 var(--hue));
   --font-family: "Tektur", cursive;
 
   /* Sizes */
@@ -29,7 +30,7 @@ body {
   margin-inline: auto;
   min-height: 100svh;
   color: var(--text);
-  background-color: var(--surface);
+  background-color: var(--surface-1);
   font-family: var(--font-family);
 }
 
@@ -58,7 +59,7 @@ button {
   padding-block: var(--size-2);
   text-transform: uppercase;
   letter-spacing: var(--font-spacing-3);
-  color: inherit;
+  color: var(--text-3);
   background-color: var(--surface-3);
   border-color: transparent;
   /**
