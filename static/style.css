@@ -29,6 +29,19 @@
   --font-spacing-1: 0.025rem;
   --font-spacing-2: 0.05rem;
   --font-spacing-3: 0.075rem;
+
+  /* Path */
+  --bevel-size: 0.75ch;
+  --bevel: polygon(
+    var(--bevel-size) 0%,
+    calc(100% - var(--bevel-size)) 0%,
+    100% var(--bevel-size),
+    100% calc(100% - var(--bevel-size)),
+    calc(100% - var(--bevel-size)) 100%,
+    var(--bevel-size) 100%,
+    0% calc(100% - var(--bevel-size)),
+    0% var(--bevel-size)
+  );
 }
 
 h1 {
@@ -81,6 +94,11 @@ button {
   border-color: var(--text);
   border-radius: var(--size-1);
   */
+}
+
+button,
+input[type="text"] {
+  clip-path: var(--bevel);
 }
 
 .row {
