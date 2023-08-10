@@ -32,6 +32,14 @@
       <div class="item">
         <h2>Submission form</h2>
         <form class="submission" hx-post="/log" hx-swap="outerHTML">
+          <select name="activity" id="activity">
+            <option value="pushup">
+              Push-up
+            </option>
+            <option value="plank">
+              Plank
+            </option>
+          </select>
           <div class="row">
             <div class="widget">
               <label for="rep">Repetitions</label>
