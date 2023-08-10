@@ -9,9 +9,9 @@ Deno.serve(async (req: Request): Response => {
   if (req.method === "GET") {
     const { pathname } = new URL(req.url);
     if (pathname === "/activity") {
-      return `
+      return new Response(`
        <p>Success</p>
-      `
+      `)
     }
   }
   if (req.method === "POST") {
