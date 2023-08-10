@@ -55,6 +55,10 @@ h1 {
   line-height: var(--font-lineheight-1);
 }
 
+nav {
+  background-color: var(--surface-2);
+}
+
 body {
   max-width: 30ch;
   margin-block: 0;
