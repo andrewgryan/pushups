@@ -16,20 +16,33 @@ Deno.serve(async (req: Request): Response => {
   if (req.method === "POST") {
     // Form data
     const formData = await req.formData();
-    const repetitions = formData.get("repetitions");
-    const sets = formData.get("sets");
-
-    const date = new Date();
-
+    const activity formData.get("activity");
+    let table;
+    let row;
+    const workout_date = new Date();
+    if (activity === "push-up") {
+      table = "workouts"
+      const repetitions = formData.get("repetitions");
+      const sets = formData.get("sets");
+      row = {
+        repetitions,
+        sets,
+        workout_date,
+      }
+    } else {
+      table = "plank"
+      const seconds = formData.get("seconds");
+      row = {
+        seconds,
+        workout_date
+      }
+    }
+    
     // Set row in database
     const { data, error } = await supabase
-      .from("workouts")
+      .from(table)
       .insert([
-        {
-          repetitions,
-          sets,
-          workout_date: date,
-        },
+        row
       ])
       .select();
 
@@ -37,8 +50,6 @@ Deno.serve(async (req: Request): Response => {
 
     return new Response(`
       <h2>Submitted</h2>
-      <div>Repetitions: ${repetitions}</div>
-      <div>Sets: ${sets}</div>
     `);
   }
   return serveDir(req, { fsRoot: "./static" });
