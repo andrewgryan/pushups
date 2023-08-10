@@ -61,13 +61,17 @@ nav {
 }
 
 body {
-  max-width: 30ch;
-  margin-block: 0;
-  margin-inline: auto;
+  margin: 0;
   min-height: 100svh;
   color: var(--text);
   background-color: var(--surface-1);
   font-family: var(--font-family);
+}
+
+main {
+  max-width: 30ch;
+  margin-block: 0;
+  margin-inline: auto;
 }
 
 .submission {
