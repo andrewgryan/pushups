@@ -6,6 +6,14 @@ const supabase = createClient(
 );
 
 Deno.serve(async (req: Request): Response => {
+  if (req.method === "GET") {
+    const { pathname } = new URL(req.url);
+    if (pathname === "/activity") {
+      return `
+       <p>Success</p>
+      `
+    }
+  }
   if (req.method === "POST") {
     // Form data
     const formData = await req.formData();
