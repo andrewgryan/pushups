@@ -1,4 +1,4 @@
-import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
+import { serveDir, serveFile } from "https://deno.land/std@0.194.0/http/file_server.ts";
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const supabase = createClient(
   "https://kixpbxytlkwqauqsckme.supabase.co",
@@ -10,9 +10,7 @@ Deno.serve(async (req: Request): Response => {
     const { pathname, searchParams } = new URL(req.url);
     if (pathname === "/activity") {
       const activity = searchParams.get("activity")
-      return new Response(`
-       <p>${activity}</p>
-      `)
+      return serveFile(req, `./static/forms/${activity}.html`)
     }
   }
   if (req.method === "POST") {
