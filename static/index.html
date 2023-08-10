@@ -32,7 +32,9 @@
       <div class="item">
         <h2>Submission form</h2>
         <form class="submission" hx-post="/log" hx-swap="outerHTML">
-          <select name="activity" id="activity" hx-get="/activity" hx-target="#activity-form" hx-trigger="change" hx-swap="innerHTML">
+          <select name="activity" id="activity" hx-get="/activity" hx-target="#activity-form" hx-trigger="change"
+                  hx-swap="innerHTML"
+                  hx-indicator="#indicator">
             <option value="push-up">
               Push-up
             </option>
@@ -40,6 +42,7 @@
               Plank
             </option>
           </select>
+          <div id="indicator" class="htmx-indicator">Loading...</div>
           <div class="row" id="activity-form">
             <div class="widget">
               <label for="rep">Repetitions</label>
