@@ -16,7 +16,7 @@ Deno.serve(async (req: Request): Response => {
   if (req.method === "POST") {
     // Form data
     const formData = await req.formData();
-    const activity formData.get("activity");
+    const activity = formData.get("activity");
     let table;
     let row;
     const workout_date = new Date();
