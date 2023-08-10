@@ -133,6 +133,7 @@ select {
   background-color: var(--surface-2);
   color: inherit;
   padding-block: var(--size-2);
+  padding-inline: var(--size-1);
 }
 
 /* Grid stack trick */
