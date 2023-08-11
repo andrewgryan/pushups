@@ -33,7 +33,7 @@
         <h2>Submission form</h2>
         <form class="submission" hx-post="/log" hx-swap="outerHTML">
           <select name="activity" id="activity" hx-get="/activity" hx-target="#activity-form"
-                  hx-trigger="load, changed"
+                  hx-trigger="load, change"
                   hx-swap="innerHTML"
                   hx-indicator="#indicator">
             <option value="push-up">
