@@ -19,7 +19,7 @@ const data = [{
 	x,
 	y,
 	marker: {
-	  color: root.style.getPropertyValue("--text-4")
+	  color: "#007465"
 	}
 }];
 const my = 40;
