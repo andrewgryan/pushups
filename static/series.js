@@ -23,13 +23,16 @@ const data = [{
 	}
 }];
 const my = 40;
-const mx = 20;
+const ml = 30;
+const mr = 10;
+const family = "Tektur, cursive";
 const color = "#006f87" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: {
 	    text: "Plank",
 	    font: {
-	      color
+	      color,
+	      family
 	    }
 	  },
 	  showlegend: true,
@@ -44,8 +47,8 @@ const layout = {
 	  margin: {
             t: my,
 	    b: my,
-	    l: mx,
-	    r: mx
+	    l: ml,
+	    r: mr
 	  },
 	xaxis: {
 	  color,
@@ -57,7 +60,7 @@ const layout = {
           rangemode: "tozero",
 	  title: {
 	    text: "seconds",
-	    font: { color }
+	    font: { color, family }
 	  }
 	}
 	};
