@@ -33,7 +33,10 @@ const layout = {
 	    r: m
 	  },
 	xaxis: {
-	  gridcolor: "limegreen"
+	  gridcolor: "limegreen",
+	  tickfont: {
+	    color: "limegreen"
+	  }
 	}
 	};
 const config = { responsive: true};
