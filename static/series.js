@@ -41,10 +41,12 @@ const layout = {
 	    r: mx
 	  },
 	xaxis: {
-	  color
+	  color,
+	  gridcolor: color
 	},
 	yaxis: {
           color,
+          gridcolor: color,
           rangemode: "tozero"
 	}
 	};
