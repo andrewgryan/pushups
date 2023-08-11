@@ -18,7 +18,7 @@ const data = [{
 	x,
 	y,
 	marker: {
-	  color: "var(--text-1)"
+	  color: "var(--text-4)"
 	}
 }];
 const m = 25;
