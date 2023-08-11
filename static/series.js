@@ -31,7 +31,10 @@ const layout = {
 	    b: m,
 	    l: m,
 	    r: m
-	  }
+	  },
+	xaxis: {
+	  gridcolor: "var(--text-4)"
+	}
 	};
 const config = { responsive: true};
 Plotly.newPlot(el, data, layout, config);
