@@ -23,7 +23,7 @@ const data = [{
 	}
 }];
 const m = 25;
-const color = "hotpink";
+const color = root.style.getPropertyValue("--surface-active");
 const layout = {
 	  title: "Progress",
 	  plot_bgcolor: "transparent",
