@@ -25,7 +25,12 @@ const data = [{
 const m = 40;
 const color = "#003441" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
-	  title: "Progress",
+	  title: {
+	    text: "Progress",
+	    font: {
+	      color
+	    }
+	  },
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
 	  margin: {
