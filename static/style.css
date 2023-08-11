@@ -169,8 +169,6 @@ select {
 
 .item {
   grid-area: body;
-  padding-block: var(--size-2);
-  padding-inline: var(--size-4);
 }
 
 .tab label {
@@ -228,4 +226,10 @@ canvas {
 }
 .py-2 {
   padding-block: var(--size-2);
+}
+.px-4 {
+  padding-inline: var(--size-4);
+}
+.p-2 {
+  padding: var(--size-2);
 }
