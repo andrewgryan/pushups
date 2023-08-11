@@ -34,7 +34,7 @@ const layout = {
 	  },
 	  showlegend: true,
 	  legend: {
-            x: 0,
+            x: 0.5,
             xanchor: 'right',
             y: 1,
 	    font: { color }
