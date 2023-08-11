@@ -22,6 +22,7 @@ const data = [{
 	}
 }];
 const m = 25;
+const color = "hotpink";
 const layout = {
 	  title: "Progress",
 	  plot_bgcolor: "transparent",
@@ -33,9 +34,15 @@ const layout = {
 	    r: m
 	  },
 	xaxis: {
-	  gridcolor: "limegreen",
+	  gridcolor: color,
 	  tickfont: {
-	    color: "limegreen"
+	    color
+	  }
+	},
+	yaxis: {
+	  gridcolor: color,
+	  tickfont: {
+	    color
 	  }
 	}
 	};
