@@ -70,16 +70,17 @@
     <script>
 	const el = document.getElementById('series');
 	const data = [{
-	x: [1, 2, 3, 4, 5],
-	y: [1, 2, 4, 8, 16] }];
+	x: [1, 2, 3, 4, 5, 6],
+	y: [1, 2, 4, 8, 16, 11] }];
+	const m = 20;
 	const layout = {
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
 	  margin: {
-            t: 10,
-	    b: 10,
-	    l: 10,
-	    r: 10
+            t: m,
+	    b: m,
+	    l: m,
+	    r: m
 	  }
 	};
 	const config = { responsive: true};
