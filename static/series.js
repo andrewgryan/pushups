@@ -52,12 +52,14 @@ const layout = {
 	  },
 	xaxis: {
 	  color,
-	  gridcolor: color
+	  gridcolor: color,
+	  tickfont: { color, family },
 	},
 	yaxis: {
           color,
           gridcolor: color,
           rangemode: "tozero",
+	  tickfont: { color, family },
 	  title: {
 	    text: "seconds",
 	    font: { color, family }
