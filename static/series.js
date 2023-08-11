@@ -27,7 +27,7 @@ const mx = 20;
 const color = "#006f87" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: {
-	    text: "Progress",
+	    text: "Plank",
 	    font: {
 	      color
 	    }
