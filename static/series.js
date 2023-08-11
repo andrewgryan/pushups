@@ -49,7 +49,8 @@ const layout = {
 	  gridcolor: color,
 	  tickfont: {
 	    color
-	  }
+	  },
+          ramgemode: "tozero"
 	}
 	};
 const config = { responsive: true, displayModeBar: false };
