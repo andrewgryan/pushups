@@ -33,7 +33,7 @@ const layout = {
 	    r: m
 	  },
 	xaxis: {
-	  gridcolor: "var(--text-4)"
+	  gridcolor: "limegreen"
 	}
 	};
 const config = { responsive: true};
