@@ -50,7 +50,7 @@ const layout = {
 	  tickfont: {
 	    color
 	  },
-          ramgemode: "tozero"
+          rangemode: "tozero"
 	}
 	};
 const config = { responsive: true, displayModeBar: false };
