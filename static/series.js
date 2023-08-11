@@ -16,7 +16,11 @@ const el = document.getElementById('series');
 const data = [{
 	name: "Plank duration",
 	x,
-	y }];
+	y,
+	marker: {
+	  color: "var(--text-1)"
+	}
+}];
 const m = 25;
 const layout = {
 	  title: "Progress",
