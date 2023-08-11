@@ -17,7 +17,7 @@ const data = [{
 	name: "Plank duration",
 	x,
 	y }];
-const m = 20;
+const m = 25;
 const layout = {
 	  title: "Progress",
 	  plot_bgcolor: "transparent",
