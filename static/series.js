@@ -23,7 +23,7 @@ const data = [{
 	}
 }];
 const m = 25;
-const color = getComputedStyle(root).getPropertyValue("--surface-active");
+const color = "oklch(30% 0.1 220deg)" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: "Progress",
 	  plot_bgcolor: "transparent",
