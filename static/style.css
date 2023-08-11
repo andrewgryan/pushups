@@ -142,8 +142,13 @@ select {
   grid-template-areas:
     "tab-1 tab-2 tab-3"
     "body body body";
-  background-color: var(--surface-2);
   color: var(--text);
+}
+
+.stack {
+  background-image: linear-gradient(
+    var(--surface-2),
+    var(--surface-1));
 }
 
 .tab-1 {
