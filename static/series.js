@@ -19,7 +19,7 @@ const data = [{
 	x,
 	y,
 	marker: {
-	  color: "#007465"
+	  color: "#4bb3a1"
 	}
 }];
 const my = 40;
