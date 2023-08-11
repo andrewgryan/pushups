@@ -23,7 +23,7 @@ const data = [{
 	}
 }];
 const my = 40;
-const ml = 30;
+const ml = 40;
 const mr = 10;
 const family = "Tektur, cursive";
 const color = "#006f87" // getComputedStyle(root).getPropertyValue("--surface-active");
@@ -40,7 +40,7 @@ const layout = {
             x: 0.5,
             xanchor: 'right',
             y: 1.1,
-	    font: { color }
+	    font: { color, family }
 	  },
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
