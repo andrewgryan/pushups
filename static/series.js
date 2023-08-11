@@ -36,7 +36,8 @@ const layout = {
 	  legend: {
             x: 0,
             xanchor: 'right',
-            y: 1
+            y: 1,
+	    font: { color }
 	  },
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
