@@ -9,11 +9,14 @@ let { data: planks, error } = await supabase
   .from("plank")
   .select("seconds,workout_date");
 
+const x = planks.map(({ workout_date }) => workout_date);
+const y = planks.map(({ seconds }) => seconds);
+
 const el = document.getElementById('series');
 const data = [{
 	name: "Plank duration",
-	x: [1, 2, 3, 4, 5, 6],
-	y: [1, 2, 4, 8, 16, 1] }];
+	x,
+	y }];
 const m = 20;
 const layout = {
 	  title: "Progress",
