@@ -54,7 +54,11 @@ const layout = {
 	yaxis: {
           color,
           gridcolor: color,
-          rangemode: "tozero"
+          rangemode: "tozero",
+	  title: {
+	    text: "seconds",
+	    font: { color }
+	  }
 	}
 	};
 const config = { responsive: true, displayModeBar: false };
