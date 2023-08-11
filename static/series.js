@@ -22,7 +22,8 @@ const data = [{
 	  color: root.style.getPropertyValue("--text-4")
 	}
 }];
-const m = 40;
+const my = 40;
+const mx = 10;
 const color = "#003441" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: {
@@ -34,10 +35,10 @@ const layout = {
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
 	  margin: {
-            t: m,
-	    b: m,
-	    l: m,
-	    r: m
+            t: my,
+	    b: my,
+	    l: mx,
+	    r: mx
 	  },
 	xaxis: {
 	  gridcolor: color,
@@ -46,6 +47,7 @@ const layout = {
 	  }
 	},
 	yaxis: {
+          linecolor: color,
 	  gridcolor: color,
 	  tickfont: {
 	    color
