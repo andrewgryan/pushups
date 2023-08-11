@@ -24,7 +24,7 @@ const data = [{
 }];
 const my = 40;
 const mx = 20;
-const color = "#003441" // getComputedStyle(root).getPropertyValue("--surface-active");
+const color = "#006f87" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: {
 	    text: "Progress",
