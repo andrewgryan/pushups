@@ -211,7 +211,6 @@ label {
 canvas {
   width: 100%;
   aspect-ratio: 4/3;
-  outline: 3px solid limegreen;
 }
 
 .series {
