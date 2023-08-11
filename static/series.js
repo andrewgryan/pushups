@@ -47,5 +47,5 @@ const layout = {
 	  }
 	}
 	};
-const config = { responsive: true};
+const config = { responsive: true, displayModeBar: false };
 Plotly.newPlot(el, data, layout, config);
