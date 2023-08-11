@@ -219,3 +219,13 @@ canvas {
   background-color: limegreen;
   aspect-ratio: 16 / 9;
 }
+
+.grid {
+  display: grid;
+}
+.gap-2 {
+  gap: var(--size-2);
+}
+.py-2 {
+  padding-block: var(--size-2);
+}
