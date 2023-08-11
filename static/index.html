@@ -12,7 +12,6 @@
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
-    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
   </head>
   <body>
     <nav>
@@ -67,11 +66,12 @@
     <script type="module">
       import "./script.js";
     </script>
-    <script>
+    <script type="module">
+	import "https://cdn.plot.ly/plotly-2.24.1.min.js"
 	const el = document.getElementById('series');
 	const data = [{
 	x: [1, 2, 3, 4, 5, 6],
-	y: [1, 2, 4, 8, 16, 11] }];
+	y: [1, 2, 4, 8, 16, 1] }];
 	const m = 20;
 	const layout = {
 	  plot_bgcolor: "transparent",
