@@ -12,13 +12,14 @@ let { data: planks, error } = await supabase
 const x = planks.map(({ workout_date }) => workout_date);
 const y = planks.map(({ seconds }) => seconds);
 
+const root = document.documentElement;
 const el = document.getElementById('series');
 const data = [{
 	name: "Plank duration",
 	x,
 	y,
 	marker: {
-	  color: "var(--text-4)"
+	  color: root.style.getProperty("--text-4")
 	}
 }];
 const m = 25;
