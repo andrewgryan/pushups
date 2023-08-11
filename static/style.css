@@ -203,7 +203,9 @@ label {
 .item:has(~ .tab input:checked) {
   z-index: 1;
   color: var(--text-active);
-  background-color: var(--surface-active);
+  background-image: linear-gradient(
+    var(--surface-active),
+    var(--surface-1));
 }
 
 canvas {
