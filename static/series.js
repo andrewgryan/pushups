@@ -22,7 +22,7 @@ const data = [{
 	  color: root.style.getPropertyValue("--text-4")
 	}
 }];
-const m = 25;
+const m = 40;
 const color = "rgb(255, 0, 0)" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: "Progress",
