@@ -32,6 +32,12 @@ const layout = {
 	      color
 	    }
 	  },
+	  showlegend: true,
+	  legend: {
+            x: 1,
+            xanchor: 'right',
+            y: 1
+	  },
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
 	  margin: {
