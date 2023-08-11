@@ -41,17 +41,10 @@ const layout = {
 	    r: mx
 	  },
 	xaxis: {
-	  gridcolor: color,
-	  tickfont: {
-	    color
-	  }
+	  color
 	},
 	yaxis: {
-          linecolor: color,
-	  gridcolor: color,
-	  tickfont: {
-	    color
-	  },
+          color,
           rangemode: "tozero"
 	}
 	};
