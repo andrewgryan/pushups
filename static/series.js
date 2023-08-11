@@ -23,7 +23,7 @@ const data = [{
 	}
 }];
 const my = 40;
-const mx = 10;
+const mx = 20;
 const color = "#003441" // getComputedStyle(root).getPropertyValue("--surface-active");
 const layout = {
 	  title: {
