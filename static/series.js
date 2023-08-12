@@ -28,7 +28,7 @@ const pushUpData = [{
 	x: pushups.map(({ workout_date }) => workout_date),
 	y: pushups.map(({ sets, repetitions }) => sets * repetitions),
 	marker: {
-	  color: "#4bb3a1"
+	  color: "#d2849c"
 	}
 }];
 
