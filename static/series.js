@@ -5,6 +5,20 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtpeHBieHl0bGt3cWF1cXNja21lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODg5MzIxNTksImV4cCI6MjAwNDUwODE1OX0.jHYoyq282s1Yhq382geJpeBhf5BGiN4ObnOPk9NBrzo"
 );
 
+// Push-ups
+let { data: pushups } = await supabase
+  .from("workouts")
+  .select("sets,repetitions,workout_date");
+const pushUpData = [{
+	name: "Reps",
+	x: pushups.map(({ workout_date }) => workout_date),
+	y: pushups.map(({ repetitions}) => repetitions),
+	marker: {
+	  color: "#4bb3a1"
+	}
+}];
+
+// Planks
 let { data: planks, error } = await supabase
   .from("plank")
   .select("seconds,workout_date");
@@ -68,4 +82,4 @@ const layout = {
 	};
 const config = { responsive: true, displayModeBar: false };
 Plotly.newPlot(el, data, layout, config);
-Plotly.newPlot("repeated", data, layout, config);
+Plotly.newPlot("repeated", pushUpData, layout, config);
