@@ -68,3 +68,4 @@ const layout = {
 	};
 const config = { responsive: true, displayModeBar: false };
 Plotly.newPlot(el, data, layout, config);
+Plotly.newPlot("repeated", data, layout, config);
