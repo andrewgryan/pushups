@@ -16,7 +16,14 @@ const pushUpData = [{
 	marker: {
 	  color: "#4bb3a1"
 	}
-}];
+},{
+	name: "Sets",]
+	x: pushups.map(({ workout_date }) => workout_date),
+	y: pushups.map(({ sets }) => sets),
+	marker: {
+	  color: "#4bb3a1"
+	}
+};
 
 // Planks
 let { data: planks, error } = await supabase
