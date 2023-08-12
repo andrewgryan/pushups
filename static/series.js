@@ -65,7 +65,7 @@ const layout = {
 	  },
 	  showlegend: true,
 	  legend: {
-            x: 0.5,
+            x: 0.75,
             xanchor: 'right',
             y: 1.1,
 	    font: { color, family },
