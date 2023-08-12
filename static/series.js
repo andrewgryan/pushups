@@ -68,7 +68,8 @@ const layout = {
             x: 0.5,
             xanchor: 'right',
             y: 1.1,
-	    font: { color, family }
+	    font: { color, family },
+	    orientation: "h"
 	  },
 	  plot_bgcolor: "transparent",
 	  paper_bgcolor: "transparent",
