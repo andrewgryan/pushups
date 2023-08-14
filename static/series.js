@@ -55,6 +55,15 @@ const ml = 40;
 const mr = 10;
 const family = "Tektur, cursive";
 const color = "#006f87" // getComputedStyle(root).getPropertyValue("--surface-active");
+const pushUpLayout = {
+  title: {
+    text: "Push-ups",
+    font: {
+      color,
+      family
+    }
+  }
+}
 const layout = {
 	  title: {
 	    text: "Plank",
@@ -97,4 +106,4 @@ const layout = {
 	};
 const config = { responsive: true, displayModeBar: false };
 Plotly.newPlot(el, data, layout, config);
-Plotly.newPlot("repeated", pushUpData, layout, config);
+Plotly.newPlot("repeated", pushUpData, {...layout, ...pushUpLayout}, config);
