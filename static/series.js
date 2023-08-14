@@ -15,21 +15,24 @@ const pushUpData = [{
 	y: pushups.map(({ repetitions}) => repetitions),
 	marker: {
 	  color: "#4bb3a1"
-	}
+	},
+	line: {shape: 'hv'},
 },{
 	name: "Sets",
 	x: pushups.map(({ workout_date }) => workout_date),
 	y: pushups.map(({ sets }) => sets),
 	marker: {
 	  color: "#d28a69"
-	}
+	},
+	line: {shape: 'hv'},
 },{
 	name: "Total",
 	x: pushups.map(({ workout_date }) => workout_date),
 	y: pushups.map(({ sets, repetitions }) => sets * repetitions),
 	marker: {
 	  color: "#d2849c"
-	}
+	},
+	line: {shape: 'hv'},
 }];
 
 // Planks
