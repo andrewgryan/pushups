@@ -20,39 +20,3 @@ workouts.forEach((workout) => {
   );
   ul.appendChild(li);
 });
-
-// Chart.js
-import {
-  Chart,
-  registerables,
-} from "https://cdn.jsdelivr.net/npm/chart.js@4.3.0/+esm";
-Chart.register(...registerables);
-Chart.defaults.color = "white";
-Chart.defaults.borderColor = "hsl(240deg 50% 50% / 0.3)";
-
-const render = (data) => {
-  new Chart(document.getElementById("chart"), {
-    type: "line",
-    data,
-  });
-};
-
-const toLabels = (workouts) => {
-  return workouts.map((workout, i) => i);
-};
-
-const toDatasets = (workouts) => {
-  const reps = workouts.map(({ repetitions }) => repetitions);
-  const sets = workouts.map(({ sets }) => sets);
-  const total = workouts.map(({ repetitions, sets }) => repetitions * sets);
-  return [
-    { label: "Reps", data: reps },
-    { label: "Sets", data: sets },
-    { label: "Total", data: total },
-  ];
-};
-
-render({
-  labels: toLabels(workouts),
-  datasets: toDatasets(workouts),
-});
