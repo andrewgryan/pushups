@@ -62,6 +62,16 @@ const pushUpLayout = {
       color,
       family
     }
+  },
+  yaxis: {
+    color,
+    gridcolor: color,
+    rangemode: "tozero",
+    tickfont: { color, family },
+    title: {
+      text: "Number",
+      font: { color, family }
+    }
   }
 }
 const layout = {
