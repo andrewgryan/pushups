@@ -48,7 +48,8 @@ const data = [{
 	y,
 	marker: {
 	  color: "#4bb3a1"
-	}
+	},
+	line: {shape: 'hv'},
 }];
 const my = 40;
 const ml = 40;
