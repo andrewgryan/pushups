@@ -63,7 +63,7 @@ const pushUpLayout = {
   title: {
     text: "Push-ups",
     font: {
-      color: "oklch(80% 0.1 220deg)",
+      color: "#6ccdea",
       family
     }
   },
