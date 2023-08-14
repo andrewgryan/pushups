@@ -59,11 +59,12 @@ const ml = 40;
 const mr = 10;
 const family = "Tektur, cursive";
 const color = "#006f87" // getComputedStyle(root).getPropertyValue("--surface-active");
+const titleColor = "#6ccdea"
 const pushUpLayout = {
   title: {
     text: "Push-ups",
     font: {
-      color: "#6ccdea",
+      color: titleColor,
       family
     }
   },
@@ -82,7 +83,7 @@ const layout = {
 	  title: {
 	    text: "Plank",
 	    font: {
-	      color,
+	      color: titleColor,
 	      family
 	    }
 	  },
