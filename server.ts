@@ -1,4 +1,7 @@
-import { serveDir, serveFile } from "https://deno.land/std@0.194.0/http/file_server.ts";
+import {
+  serveDir,
+  serveFile,
+} from "https://deno.land/std@0.194.0/http/file_server.ts";
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const supabase = createClient(
   "https://kixpbxytlkwqauqsckme.supabase.co",
@@ -9,8 +12,8 @@ Deno.serve(async (req: Request): Response => {
   if (req.method === "GET") {
     const { pathname, searchParams } = new URL(req.url);
     if (pathname === "/activity") {
-      const activity = searchParams.get("activity")
-      return serveFile(req, `./static/forms/${activity}.html`)
+      const activity = searchParams.get("activity");
+      return serveFile(req, `./static/forms/${activity}.html`);
     }
   }
   if (req.method === "POST") {
@@ -21,30 +24,25 @@ Deno.serve(async (req: Request): Response => {
     let row;
     const workout_date = new Date();
     if (activity === "push-up") {
-      table = "workouts"
+      table = "workouts";
       const repetitions = formData.get("repetitions");
       const sets = formData.get("sets");
       row = {
         repetitions,
         sets,
         workout_date,
-      }
+      };
     } else {
-      table = "plank"
+      table = "plank";
       const seconds = formData.get("seconds");
       row = {
         seconds,
-        workout_date
-      }
+        workout_date,
+      };
     }
-    
+
     // Set row in database
-    const { data, error } = await supabase
-      .from(table)
-      .insert([
-        row
-      ])
-      .select();
+    const { data, error } = await supabase.from(table).insert([row]).select();
 
     console.log({ data, error });
 

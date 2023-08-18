@@ -148,9 +148,7 @@ select {
 }
 
 .stack {
-  background-image: linear-gradient(
-    var(--surface-2),
-    var(--surface-1));
+  background-image: linear-gradient(var(--surface-2), var(--surface-1));
 }
 
 .tab-1 {
@@ -203,9 +201,7 @@ label {
 .item:has(~ .tab input:checked) {
   z-index: 1;
   color: var(--text-active);
-  background-image: linear-gradient(
-    var(--surface-active),
-    var(--surface-1));
+  background-image: linear-gradient(var(--surface-active), var(--surface-1));
 }
 
 canvas {
