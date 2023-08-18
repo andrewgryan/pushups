@@ -42,24 +42,33 @@ const pushUpData = [
 // Planks
 let { data: planks, error } = await supabase
   .from("plank")
-  .select("seconds,workout_date");
-
-const x = planks.map(({ workout_date }) => workout_date);
-const y = planks.map(({ seconds }) => seconds);
+  .select("seconds,workout_date,variation");
 
 const root = document.documentElement;
 const el = document.getElementById("series");
-const data = [
-  {
-    name: "Plank duration",
-    x,
-    y,
+const keys = [
+  ["straight-arm", "Straight arm", "#d2849c"],
+  ["forearm", "Forearm", "#4bb3a1"],
+  ["left-side", "Left side", "#d28a69"],
+  ["right-side", "Right side", "#d28a69"],
+  ["back", "Back", "#d28a69"],
+];
+const data = keys.map(([key, name, color]) => {
+  return {
+    name,
+    x: planks
+      .filter(({ variation }) => variation === key)
+      .map(({ workout_date }) => workout_date),
+    y: planks
+      .filter(({ variation }) => variation === key)
+      .map(({ seconds }) => seconds),
     marker: {
-      color: "#4bb3a1",
+      color,
     },
     line: { shape: "hv" },
-  },
-];
+  };
+});
+
 const my = 40;
 const ml = 40;
 const mr = 10;
