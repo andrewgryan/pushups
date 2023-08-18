@@ -49,9 +49,9 @@ const el = document.getElementById("series");
 const keys = [
   ["straight-arm", "Straight arm", "#d2849c"],
   ["forearm", "Forearm", "#4bb3a1"],
-  ["left-side", "Left side", "#d28a69"],
-  ["right-side", "Right side", "#d28a69"],
-  ["back", "Back", "#d28a69"],
+  ["left-side", "Left side", "#4aadca"],
+  ["right-side", "Right side", "#929adc"],
+  ["back", "Back", "#ba8ac5"],
 ];
 const data = keys.map(([key, name, color]) => {
   return {
