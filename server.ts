@@ -35,9 +35,11 @@ Deno.serve(async (req: Request): Response => {
     } else {
       table = "plank";
       const seconds = formData.get("seconds");
+      const variation = formData.get("variation");
       row = {
         seconds,
         workout_date,
+        variation,
       };
     }
 
