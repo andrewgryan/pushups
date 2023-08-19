@@ -48,9 +48,12 @@ Deno.serve(async (req: Request): Response => {
 
     console.log({ data, error });
 
-    return new Response(`
-      <h2>Submitted</h2>
-    `);
+    // Return confirmation that a workout has been submitted
+    return new Response(`<h2>Submitted</h2>`, {
+      headers: {
+        "HX-Trigger": "workout-submit",
+      },
+    });
   }
   return serveDir(req, { fsRoot: "./static" });
 });
