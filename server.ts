@@ -28,14 +28,14 @@ app.get("/login", async (c) => {
           },
         }
       );
-      const signin = () => {
-      supabase.auth.signInWithOAuth({
-      provider: "google"
-    })
-    }
+      document.getElementById("login").addEventListener("click", () => {
+        supabase.auth.signInWithOAuth({
+          provider: "google"
+        })
+      })
       </script>
       <h1>Hello, World!</h1>
-      <button onclick="signin">Login</button>
+      <button id="login">Login</button>
     `);
 });
 
