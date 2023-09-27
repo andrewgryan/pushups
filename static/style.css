@@ -55,13 +55,6 @@ h1 {
   line-height: var(--font-lineheight-1);
 }
 
-nav {
-  background-color: var(--surface-1);
-  padding-inline: var(--size-2);
-  display: flex;
-  justify-content: flex-end;
-}
-
 body {
   margin: 0;
   min-height: 100svh;

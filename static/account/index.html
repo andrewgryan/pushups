@@ -12,8 +12,26 @@
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+    <style>
+      [un-cloak] {
+        display: none;
+      }
+    </style>
+    <script>
+      // pass unocss options
+      window.__unocss = {
+        rules: [
+          // custom rules...
+        ],
+        presets: [
+          // custom presets...
+        ],
+        // ...
+      };
+    </script>
   </head>
   <body>
-    <h1>Account</h1>
+    <h1 class="text-blue-500 tracking-wider text-2xl">Account</h1>
   </body>
 </html>
