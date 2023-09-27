@@ -14,7 +14,7 @@ app.get("/activity", async (c) => {
   return c.html(text);
 });
 
-app.get("/user", (c) => {
+app.get("/user", async (c) => {
   try {
     const supabaseClient = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
