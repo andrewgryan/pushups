@@ -17,6 +17,10 @@ app.get("/activity", async (c) => {
 app.get("/login", async (c) => {
   // TODO add a client side login auth flow
   return c.html(`
+      <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+      console.log(createClient)
+      </script>
       <h1>Hello, World!</h1>
       <button>Login</button>
     `);
