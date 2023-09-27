@@ -15,7 +15,11 @@ app.get("/activity", async (c) => {
 });
 
 app.get("/login", async (c) => {
-  return c.html("<button>Login</button>");
+  // TODO add a client side login auth flow
+  return c.html(`
+      <h1>Hello, World!</h1>
+      <button>Login</button>
+    `);
 });
 
 app.get("/user", async (c) => {
