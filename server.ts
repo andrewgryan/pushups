@@ -16,10 +16,19 @@ app.get("/activity", async (c) => {
 
 app.get("/login", async (c) => {
   // TODO add a client side login auth flow
+  const url = Deno.env.get("SUPABASE_URL") ?? "";
+  const key = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  const header = c.req.headers.get("Authorization")!;
   return c.html(`
       <script type="module">
       import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-      console.log(createClient)
+      const client = createClient(${url}, ${key}, {
+          global: {
+            headers: { Authorization: ${header} },
+          },
+        }
+      );
+      console.log(client)
       </script>
       <h1>Hello, World!</h1>
       <button>Login</button>
