@@ -1,8 +1,5 @@
 import { Hono } from "https://deno.land/x/hono/mod.ts";
-import {
-  serveDir,
-  serveFile,
-} from "https://deno.land/std@0.194.0/http/file_server.ts";
+import { serveStatic } from "https://deno.land/x/hono/middleware.ts";
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const supabase = createClient(
   "https://kixpbxytlkwqauqsckme.supabase.co",
@@ -11,57 +8,52 @@ const supabase = createClient(
 
 const app = new Hono();
 
-app.get("/", (c) => c.text("Hello, Hono!"));
+app.get("/activity", async (c) => {
+  const { activity } = c.req.query();
+  const text = await Deno.readFile(`./static/forms/${activity}.html`);
+  return c.html(text);
+});
+
+app.post("*", async (c) => {
+  // Form data
+  const formData = await c.req.formData();
+  const activity = formData.get("activity");
+  let table;
+  let row;
+  const workout_date = new Date();
+  if (activity === "push-up") {
+    table = "workouts";
+    const repetitions = formData.get("repetitions");
+    const sets = formData.get("sets");
+    row = {
+      repetitions,
+      sets,
+      workout_date,
+    };
+  } else {
+    table = "plank";
+    const seconds = formData.get("seconds");
+    const variation = formData.get("variation");
+    row = {
+      seconds,
+      workout_date,
+      variation,
+    };
+  }
+
+  // Set row in database
+  const { data, error } = await supabase.from(table).insert([row]).select();
+
+  console.log({ data, error });
+
+  // Return confirmation that a workout has been submitted
+  return new Response(`<h2>Submitted</h2>`, {
+    headers: {
+      "HX-Trigger": "workout-submit",
+    },
+  });
+});
+
+app.use("*", serveStatic({ root: "./static" }));
 
 Deno.serve(app.fetch);
-
-// Server entrypoint
-// Deno.serve(async (req: Request): Response => {
-//   if (req.method === "GET") {
-//     const { pathname, searchParams } = new URL(req.url);
-//     if (pathname === "/activity") {
-//       const activity = searchParams.get("activity");
-//       return serveFile(req, `./static/forms/${activity}.html`);
-//     }
-//   }
-//   if (req.method === "POST") {
-//     // Form data
-//     const formData = await req.formData();
-//     const activity = formData.get("activity");
-//     let table;
-//     let row;
-//     const workout_date = new Date();
-//     if (activity === "push-up") {
-//       table = "workouts";
-//       const repetitions = formData.get("repetitions");
-//       const sets = formData.get("sets");
-//       row = {
-//         repetitions,
-//         sets,
-//         workout_date,
-//       };
-//     } else {
-//       table = "plank";
-//       const seconds = formData.get("seconds");
-//       const variation = formData.get("variation");
-//       row = {
-//         seconds,
-//         workout_date,
-//         variation,
-//       };
-//     }
-
-//     // Set row in database
-//     const { data, error } = await supabase.from(table).insert([row]).select();
-
-//     console.log({ data, error });
-
-//     // Return confirmation that a workout has been submitted
-//     return new Response(`<h2>Submitted</h2>`, {
-//       headers: {
-//         "HX-Trigger": "workout-submit",
-//       },
-//     });
-//   }
-//   return serveDir(req, { fsRoot: "./static" });
-// });
