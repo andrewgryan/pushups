@@ -14,6 +14,10 @@ app.get("/activity", async (c) => {
   return c.html(text);
 });
 
+app.get("/login", async (c) => {
+  return c.html("<button>Login</button>");
+});
+
 app.get("/user", async (c) => {
   try {
     const supabaseClient = createClient(
@@ -25,7 +29,6 @@ app.get("/user", async (c) => {
         },
       }
     );
-    // Now we can get the session or user object
     const {
       data: { user },
     } = await supabaseClient.auth.getUser();
