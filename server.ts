@@ -28,7 +28,6 @@ app.get("/login", async (c) => {
           },
         }
       );
-      console.log(client)
       const signin = () => {
       supabase.auth.signInWithOAuth({
       provider: "google"
