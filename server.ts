@@ -34,7 +34,7 @@ app.get("/login", async (c) => {
         supabase.auth.signInWithOAuth({
           provider: "google",
           options: {
-            redirectTo: ${redirectTo}
+            redirectTo: "${redirectTo}"
           }
         })
       })
