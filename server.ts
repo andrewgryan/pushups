@@ -14,6 +14,34 @@ app.get("/activity", async (c) => {
   return c.html(text);
 });
 
+app.get("/user", (c) => {
+  try {
+    const supabaseClient = createClient(
+      // Supabase API URL - env var exported by default.
+      Deno.env.get("SUPABASE_URL") ?? "",
+      // Supabase API ANON KEY - env var exported by default.
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      // Create client with Auth context of the user that called the function.
+      // This way your row-level-security (RLS) policies are applied.
+      {
+        global: {
+          headers: { Authorization: c.req.headers.get("Authorization")! },
+        },
+      }
+    );
+    // Now we can get the session or user object
+    const {
+      data: { user },
+    } = await supabaseClient.auth.getUser();
+    return c.json({ user });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      headers: { "Content-Type": "application/json" },
+      status: 400,
+    });
+  }
+});
+
 app.post("*", async (c) => {
   // Form data
   const formData = await c.req.formData();
