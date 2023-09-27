@@ -22,16 +22,21 @@ app.get("/login", async (c) => {
   return c.html(`
       <script type="module">
       import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-      const client = createClient("${url}", "${key}", {
+      const supabase = createClient("${url}", "${key}", {
           global: {
             headers: { Authorization: "${header}" },
           },
         }
       );
       console.log(client)
+      const signin = () => {
+      supabase.auth.signInWithOAuth({
+      provider: "google"
+    })
+    }
       </script>
       <h1>Hello, World!</h1>
-      <button>Login</button>
+      <button onclick="signin">Login</button>
     `);
 });
 
