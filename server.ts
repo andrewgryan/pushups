@@ -22,9 +22,9 @@ app.get("/login", async (c) => {
   return c.html(`
       <script type="module">
       import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-      const client = createClient(${url}, ${key}, {
+      const client = createClient("${url}", "${key}", {
           global: {
-            headers: { Authorization: ${header} },
+            headers: { Authorization: "${header}" },
           },
         }
       );
