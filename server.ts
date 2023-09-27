@@ -18,6 +18,8 @@ app.get("/login", async (c) => {
   // TODO add a client side login auth flow
   const url = Deno.env.get("SUPABASE_URL") ?? "";
   const key = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  const redirectTo =
+    Deno.env.get("SUPABASE_REDIRECT_URL") ?? "http://localhost:3000";
   const header = c.req.headers.get("Authorization")!;
   return c.html(`
       <script type="module">
@@ -30,7 +32,10 @@ app.get("/login", async (c) => {
       );
       document.getElementById("login").addEventListener("click", () => {
         supabase.auth.signInWithOAuth({
-          provider: "google"
+          provider: "google",
+          options: {
+            redirectTo: ${redirectTo}
+          }
         })
       })
       </script>
